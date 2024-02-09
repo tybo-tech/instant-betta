@@ -1,0 +1,80 @@
+<div class="form slide-from-bottom">
+  <div class="form-group" *ngFor="let field of formData">
+    <ng-container *ngIf="field.show_on_add || field.show_on_update">
+      <label>{{ field.label_override || field.label }}</label>
+      <div [ngSwitch]="field.type">
+        <input
+          *ngSwitchCase="'datetime-local'"
+          type="datetime-local"
+          [(ngModel)]="field.value"
+          name="{{ field.label_override || field.label }}"
+        />
+        <input
+          *ngSwitchCase="'text'"
+          type="text"
+          [(ngModel)]="field.value"
+          name="{{ field.label_override || field.label }}"
+        />
+        <input
+          *ngSwitchCase="'address'"
+          type="text"
+          [(ngModel)]="field.value"
+          (input)="onAddressInputChange($event.target)"
+          name="{{ field.label_override || field.label }}"
+        />
+        <input
+          *ngSwitchCase="'number'"
+          type="number"
+          [(ngModel)]="field.value"
+          name="{{ field.label_override || field.label }}"
+        />
+        <input
+          *ngSwitchCase="'money'"
+          type="number"
+          [(ngModel)]="field.value"
+          name="{{ field.label_override || field.label }}"
+        />
+        <ng-container *ngSwitchCase="'select'">
+          <select
+            *ngIf="field.dropdown_options"
+            [(ngModel)]="field.value"
+            name="{{ field.label_override || field.label }}"
+          >
+            <option
+              *ngFor="let option of field.dropdown_options"
+              [value]="option.id"
+            >
+              {{ option.name }}
+            </option>
+          </select></ng-container
+        >
+
+        <quill-editor
+          *ngSwitchCase="'textarea'"
+          [styles]="editorStyle"
+          style="display: block"
+          [modules]="editorConfig"
+          [(ngModel)]="field.value"
+        >
+        </quill-editor>
+        <div *ngSwitchCase="'image'">
+          <input
+            type="file"
+            #file
+            (change)="onFileChange(field, file.files)"
+            accept="image/*"
+          />
+          <img
+            *ngIf="field.value"
+            [src]="field.value"
+            alt="Uploaded Image"
+            class="uploaded-image"
+          />
+        </div>
+        <!-- Add more cases as needed for other input types -->
+      </div></ng-container
+    >
+  </div>
+
+  <button (click)="onSubmit()" type="submit">Submit</button>
+</div>

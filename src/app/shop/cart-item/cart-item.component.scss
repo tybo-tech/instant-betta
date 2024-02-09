@@ -1,0 +1,21 @@
+.cart-item {
+  padding: 1rem;
+  border-bottom: var(--border);
+  gap: 1.5rem;
+  img {
+    width: 4rem;
+  }
+  h5,
+  h6 {
+    font-weight: 400;
+    text-align: left;
+  }
+  h6,
+  p {
+    color: var(--grey);
+    text-align: left;
+  }
+  p {
+    font-size: 0.6rem;
+  }
+}

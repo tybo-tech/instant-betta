@@ -1,0 +1,66 @@
+/* src/app/login/login.component.css */
+.form {
+  padding: 20px;
+  border-radius: 5px;
+  // box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+  // background: var(--white);
+  .form-group {
+    margin-bottom: 15px;
+  }
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+input,
+textarea,
+select {
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+  margin-bottom: 8px;
+  border: var(--border);
+  background: var(--cloud);
+  border-radius: 6px;
+  color: var(--grey);
+}
+textarea {
+  min-height: 8rem;
+}
+button,
+.button {
+  background-color: var(--primary);
+  color: var(--white);
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  text-align: center;
+  display: block;
+  font-weight: 500;
+  text-transform: capitalize;
+  @media only screen and (max-width: 600px) {
+    width: 100%;
+  }
+}
+
+button:disabled,
+.button:disabled {
+  background-color: #a0a0a0;
+  cursor: not-allowed;
+}
+
+button.dark,
+.button.dark {
+  background: var(--cloud);
+  color: var(--black);
+}
+
+.admin-form {
+  max-width: 600px;
+  @media only screen and (max-width: 600px) {
+    padding: 1rem;
+  }
+}

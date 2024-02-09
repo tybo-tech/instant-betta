@@ -1,0 +1,29 @@
+// empty-state.component.scss
+
+.empty-state {
+  text-align: center;
+  padding: 2rem;
+  margin: 10% auto;
+  background-color: var(--black-light);
+  border: var(--border);
+  border-radius: 0.25rem;
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+
+  i {
+    font-size: 2rem;
+    color: var(--info);
+    margin-bottom: 1rem;
+  }
+
+  p {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: var(--grey);
+  }
+  .button {
+    width: fit-content;
+    margin: .5rem auto;
+  }
+}

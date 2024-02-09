@@ -1,0 +1,14 @@
+<div >
+    <input
+      type="file"
+      #file
+      (change)="onFileChange(file.files)"
+      accept="image/*"
+    />
+    <img
+      *ngIf="imageKey && parentItem[imageKey]"
+      [src]="parentItem[imageKey]"
+      alt="Uploaded Image"
+      class="uploaded-image"
+    />
+  </div>

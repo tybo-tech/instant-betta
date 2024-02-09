@@ -1,0 +1,33 @@
+<div class="" *ngFor="let item of model">
+  <ng-container *ngIf="item.show_on_details">
+    <div class="flex">
+      <ng-container [ngSwitch]="item.type">
+        <ng-container *ngSwitchCase="'image'">
+          <img
+            [src]="getFormattedValue(item)"
+            *ngIf="getFormattedValue(item)"
+            alt=""
+          />
+        </ng-container>
+        <ng-container *ngSwitchCase="'text'">
+          <b>{{ item.label }}</b> : {{ getFormattedValue(item) }}
+        </ng-container>
+        <ng-container *ngSwitchCase="'address'">
+          <b>{{ item.label }}</b> : {{ getFormattedValue(item) }}
+        </ng-container>
+        <ng-container *ngSwitchCase="'latitude'">
+          <b>{{ item.label }}</b> : {{ getFormattedValue(item) }}
+        </ng-container>
+        <ng-container *ngSwitchCase="'longitude'">
+          <b>{{ item.label }}</b> : {{ getFormattedValue(item) }}
+        </ng-container>
+        <ng-container *ngSwitchCase="'address_url'">
+         <a  *ngIf="getFormattedValue(item)" [href]="getFormattedValue(item)" target="_blank"><i class="bi bi-geo-alt"></i> View on maps</a>
+        </ng-container>
+      </ng-container>
+    </div>
+  </ng-container>
+</div>
+<!-- <pre>{{ model | json }}</pre>
+<hr />
+<pre>{{ data | json }}</pre> -->

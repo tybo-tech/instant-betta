@@ -1,0 +1,10 @@
+<nav id="side-nav">
+  <header class="d-flex">
+    <i (click)="toggle()" class="bi bi-x-lg menu-button"></i>
+    <app-logo />
+  </header>
+  <div class="mb-2"></div>
+  <app-nav-item *ngFor="let item of items" [item]="item" />
+  <div class="mb-1"></div>
+  <app-nav-item  [item]="logout" />
+</nav>

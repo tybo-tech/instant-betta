@@ -1,0 +1,27 @@
+<div class="admin-form">
+  <app-back-heading heading="Add product" [url]="back" />
+
+  <br />
+  <div>
+    <label>Name: </label>
+    <input type="text" [(ngModel)]="product.name" name="name" required />
+
+    <label>Description: </label>
+    <textarea
+      [(ngModel)]="product.description"
+      name="description"
+      required
+    ></textarea>
+
+    <label>Price: </label>
+    <input type="number" [(ngModel)]="product.price" name="price" required />
+
+    <div class="mb-2">
+      <label>Image: </label>
+      <app-upload-input [parentItem]="product" imageKey="image_url" />
+    </div>
+    <!-- Add more fields as needed -->
+
+    <button (click)="addProduct()">Add Product</button>
+  </div>
+</div>

@@ -1,0 +1,28 @@
+.order-summary {
+  position: sticky;
+  top: 0;
+  .heading {
+    font-weight: 400;
+    text-transform: uppercase;
+    padding: 1rem;
+    border-bottom: var(--border);
+  }
+  .actions {
+    padding: 1rem;
+    margin-top: 1rem;
+    border-bottom: var(--border);
+
+    h4 {
+      font-weight: 400;
+      color: var(--grey);
+    }
+    p {
+      color: var(--grey);
+      font-size: 0.75rem;
+    }
+    .btn {
+      width: 100%;
+      margin-top: 1rem;
+    }
+  }
+}

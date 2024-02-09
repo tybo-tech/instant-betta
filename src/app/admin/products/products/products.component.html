@@ -1,0 +1,11 @@
+<app-bread *ngIf="bread" [bread]="bread" />
+<div class="mb-2"></div>
+
+<app-generic-list
+*ngIf="tableData"
+  [headers]="tableHeaders"
+  [data]="tableData"
+  (createClicked)="openDetailsPage()"
+  (deleteEvent)="delete($event)"
+  (viewEvent)="view($event)"
+></app-generic-list>

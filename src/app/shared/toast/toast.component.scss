@@ -1,0 +1,39 @@
+/* src/app/toast/toast.component.css */
+.toast {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px;
+    border-radius: 4px;
+    color: #fff;
+    font-size: 14px;
+    max-width: 300px;
+    word-break: break-word;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+  }
+  
+  .toast-success {
+    background-color: #28a745;
+  }
+  
+  .toast-error {
+    background-color: #dc3545;
+  }
+  
+  .toast-message {
+    flex-grow: 1;
+  }
+  
+  .toast-close {
+    cursor: pointer;
+    background: none;
+    border: none;
+    color: inherit;
+    font-size: 16px;
+  }
+  

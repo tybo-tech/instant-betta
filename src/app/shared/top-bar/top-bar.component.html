@@ -1,0 +1,26 @@
+<div class="search-bar">
+  <input
+    type="search"
+    id="searchInput"
+    [(ngModel)]="searchTerm"
+    placeholder="Search here..."
+    (input)="applySearch()"
+  />
+
+  <div class="d-flex gap-1">
+    <div class="notifications">
+      <i class="bi bi-bell"></i>
+      <div class="count pulse">3</div>
+    </div>
+    <img
+      *ngIf="user"
+      class="profile"
+      src="https://i.pravatar.cc/150?img=2"
+      alt=""
+    />
+    <h6 *ngIf="user && user.role">
+      {{ user.username }}
+      <span> {{ user.role }}</span>
+    </h6>
+  </div>
+</div>

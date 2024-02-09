@@ -1,0 +1,72 @@
+<form ngNoForm action="https://www.payfast.co.za/eng/process" method="POST">
+  <span
+    *ngIf="
+      payfast.shopingSuccesfulUrl &&
+      cartHelper &&
+      cartHelper.order?.metadata?.customer
+    "
+  >
+    <input type="hidden" name="merchant_id" [value]="merchantId" />
+    <input type="hidden" name="merchant_key" [value]="merchantKey" />
+    <input
+      type="hidden"
+      name="return_url"
+      [value]="payfast.shopingSuccesfulUrl"
+    />
+    <input
+      type="hidden"
+      name="cancel_url"
+      [value]="payfast.paymentCancelledUrl"
+    />
+    <input
+      type="hidden"
+      name="notify_url"
+      [value]="payfast.paymentCallbackUrl"
+    />
+
+    <input
+      type="hidden"
+      name="name_first"
+      [value]="cartHelper.order?.metadata?.customer?.username"
+    />
+
+    <input
+      type="hidden"
+      name="email_address"
+      [value]="cartHelper.order?.metadata?.customer?.email"
+    />
+    <input
+      type="hidden"
+      name="cell_number"
+      [value]="cartHelper.order?.metadata?.customer?.phone_number"
+    />
+
+    <input
+      type="hidden"
+      name="amount"
+      [value]="cartHelper.order?.total_price"
+    />
+    <input type="hidden" name="item_name" [value]="cartHelper.productName" />
+    <input
+      type="hidden"
+      name="item_description"
+      [value]="cartHelper.productName"
+    />
+
+    <input type="hidden" name="email_confirmation" value="1" />
+    <input
+      type="hidden"
+      name="confirmation_address"
+      value="payments@tybo.co.za"
+    />
+  </span>
+
+  <button
+    id="payfast-link"
+    style="visibility: hidden"
+    type="submit"
+    class="cta"
+  >
+    Proceed to payfast
+  </button>
+</form>

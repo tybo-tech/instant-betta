@@ -1,0 +1,60 @@
+<!-- src/app/login/login.component.html -->
+
+<div class="form">
+  <app-back-heading url="/" heading="Your location" />
+
+  <div class="p-1">
+    <h2 class="text-center">Where are you?</h2>
+    <p>
+      Now, let's pinpoint your location. Get ready to savor local delights. Your
+      coordinates ensure the best eats come straight to you.
+    </p>
+    <br />
+    <app-map-embed [latitude]="latitude" [longitude]="longitude" mapHeight="250px" />
+    <div class="d-flex buttons">
+      <input
+        class="border"
+        style="padding: 1rem;"
+        type="search"
+        id="searchInput"
+        #searchInput
+        [(ngModel)]="addressSearch"
+        placeholder="Type your location."
+        (input)="onAddressInputChange($event.target)"
+
+      />
+      <h6>Or</h6>
+      <a style="color: black;" (click)="userCurrentLocation()" class="button"><i class="bi bi-geo-alt"></i> Use my current location</a>
+    </div>
+  </div>
+</div>
+
+<!-- <div class="page">
+    <img class="banner" src="assets/images/bg.jpg" alt="" />
+    <div class="overlay-image">
+      <div class="container">
+        <h1 class="slide-from-bottom">
+          Discover Restaurants
+          <span class="highlight">Near You</span>
+  
+          <span class="small"> Enter your address or use your location. </span>
+        </h1>
+        <div class="d-flex buttons">
+          <input
+            class="border"
+            style="padding: 1rem;"
+            type="search"
+            id="searchInput"
+            #searchInput
+            [(ngModel)]="addressSearch"
+            placeholder="Type your location."
+            (input)="onAddressInputChange($event.target)"
+
+          />
+          <h6>Or</h6>
+          <a (click)="userCurrentLocation()" class="button primary"><i class="bi bi-geo-alt"></i> Use my current location</a>
+        </div>
+      </div>
+    </div>
+  </div>
+   -->

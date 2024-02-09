@@ -1,0 +1,31 @@
+<div
+  class="container"
+  *ngIf="restaurant && list && list.length; else noRestaurantsFound"
+>
+  <app-back-heading [url]="backLink" [heading]="restaurant.name" />
+  <div class="p-2">
+    <h1 class="mb-2">{{ list.length }} menu items.</h1>
+    <div class="cards grid-4">
+      <a *ngFor="let item of list" [routerLink]="item.link">
+        <app-card
+          [card]="{
+            cta: '',
+            image: item.image_url,
+            price: item.price + '',
+            subTitle: '',
+            title: item.name
+          }"
+        />
+      </a>
+    </div>
+  </div>
+</div>
+<ng-template #noRestaurantsFound>
+  <div class="container">
+    <app-empty-state
+      text="Sorry, we couldn't find any menu items for this restaurants."
+      label="Go back to restaurants"
+      [link]="backLink"
+    />
+  </div>
+</ng-template>

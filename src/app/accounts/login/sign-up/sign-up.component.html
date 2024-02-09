@@ -1,0 +1,51 @@
+<!-- src/app/login/login.component.html -->
+
+<div class="form">
+  <app-back-heading url="/" heading="Signing up" />
+
+  <div class="p-1">
+    <h2 class="text-center">Embark on a tasty journey.</h2>
+    <p>
+      Share your details for a seamless experience. Our driverw are ready to
+      connect with you.
+    </p>
+    <br />
+    <form [formGroup]="loginForm" autocomplete="off"  (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="username">Your Name:</label>
+        <input type="text"  formControlName="username" />
+      </div>
+      <div class="form-group">
+        <label for="username">Your Phone:</label>
+        <input type="tel" id="username" formControlName="phone_number" />
+        <!-- <div input-error *ngIf="loginForm.get('username')?.hasError('required')">
+                Username is required.
+              </div> -->
+      </div>
+      <div class="form-group">
+        <label for="username">Email:</label>
+        <input type="email" id="username" formControlName="email" />
+        <!-- <div input-error *ngIf="loginForm.get('username')?.hasError('required')">
+            Username is required.
+          </div> -->
+      </div>
+      <div class="form-group">
+        <label for="password">Password:</label>
+        <input type="password" id="password" formControlName="password" />
+        <!-- <div input-error *ngIf="loginForm.get('password')?.hasError('required')">
+            Password is required.
+          </div> -->
+      </div>
+      <button type="submit" [disabled]="loginForm.invalid">Create account</button>
+      <a class="d-block mt-2" routerLink="/login"
+        >Already have an account?, Login</a
+      >
+    </form>
+  </div>
+
+  <app-toast
+    *ngIf="showError"
+    [message]="errorMessage"
+    type="error"
+  ></app-toast>
+</div>

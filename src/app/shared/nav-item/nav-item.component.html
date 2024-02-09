@@ -1,0 +1,23 @@
+<a
+  (click)="toggle()"
+  class=""
+  *ngIf="item && item.link"
+  routerLinkActive="active"
+  [routerLink]="item.link"
+  [routerLinkActiveOptions]="{ exact: true }"
+>
+  <i [ngClass]="item.icon"></i>
+  {{ item.name }}
+</a>
+
+<a
+  (click)="logout()"
+  class=""
+  *ngIf="item && !item.link"
+  routerLinkActive="active"
+  [routerLink]="item.link"
+  [routerLinkActiveOptions]="{ exact: true }"
+>
+  <i [ngClass]="item.icon"></i>
+  {{ item.name }}
+</a>

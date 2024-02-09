@@ -1,0 +1,37 @@
+<div class="page">
+  <img class="banner" src="assets/images/bg.jpg" alt="" />
+  <div class="overlay-image">
+    <div class="container">
+      <div class="d-flex-center"><app-logo height="5rem" /></div>
+      <h1 class="slide-from-bottom">
+        <span class="hightlight"> Welcome to Instant Eats</span> where your
+        cravings meet convenience!
+
+        <span class="small">
+          Hungry? Sign up to explore tasty options or log in if you're back for more.
+        </span>
+      </h1>
+      <div class="d-flex buttons">
+        <!-- <a (click)=" showLogin = true" class="button">Login or Sign up</a> -->
+        <!-- <a routerLink="/find-restaurants" class="button dark">Find resturants</a> -->
+        <a routerLink="/login" class="button">Login</a>
+        <a routerLink="/sign-up" class="button dark">Create new account</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div
+  class="overlay"
+  id="overlay"
+  *ngIf="showLogin"
+  (click)="closeModal($event)"
+>
+  <div class="modal">
+    <h5 class="title">Login or Sign up</h5>
+    <div class="body">
+      <a routerLink="/login" class="button">Login</a>
+      <a routerLink="/sign-up" class="button dark">Create new account</a>
+    </div>
+  </div>
+</div>

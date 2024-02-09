@@ -1,0 +1,69 @@
+<!-- product-options-form.component.html -->
+<div class="product-options-form" *ngIf="product && product.metadata">
+  <app-back-heading
+    [heading]="product.name + ' Options/Variations'"
+    [url]="back"
+  />
+  <br />
+
+  <ng-container *ngIf="product.metadata.variations?.length">
+    <div class="card" *ngFor="let variation of product.metadata.variations">
+      <input
+        type="text"
+        class="mb-1"
+        id="optionName"
+        placeholder="Enter Variation Name..."
+        style="font-weight: 700 !important; font-size: 18px"
+        [(ngModel)]="variation.name"
+      />
+      <div class="d-flex space-between mb-2">
+        Allow Multiple?
+        <input
+          type="checkbox"
+          id="optionName"
+          placeholder="Enter Variation Name..."
+          style="width: 1rem"
+          [(ngModel)]="variation.allowMultiple"
+        />
+      </div>
+      <hr />
+      <div class="options">
+        <div
+          class="option"
+          *ngFor="let option of variation.options; let i = index"
+        >
+          <div class="grid-3-sm">
+            <input
+              type="text"
+              id="optionName"
+              placeholder="Option name"
+              [(ngModel)]="option.value"
+            />
+            <input
+              type="text"
+              id="optionName"
+              placeholder="Option price"
+              [(ngModel)]="option.price"
+            />
+            <i class="bi bi-trash" (click)="removeOption(variation, i)"></i>
+          </div>
+        </div>
+        <a class="button dark" (click)="addVariationOption(variation)"
+          >Add option</a
+        >
+      </div>
+    </div>
+    <br>
+    <br>
+    <button class="button dark" style="width: 100%; margin-bottom: 2rem;" (click)="addVariation()">Add another variation</button>
+    <button class="button" style="width: 100%;" (click)="save()">Save All</button>
+
+  </ng-container>
+  <ng-container *ngIf="!product.metadata.variations?.length">
+    <app-empty-state
+      btnName="Add Options"
+      text="This product has no options yet."
+      (clicked)="addVariation()"
+    />
+  </ng-container>
+</div>

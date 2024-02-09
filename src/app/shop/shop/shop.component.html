@@ -1,0 +1,22 @@
+
+
+<div
+  *ngIf="section"
+  [style.background]="section.settings['Section Background'].value"
+  class="section"
+>
+  <div class="container">
+   <div class="d-block">
+    <app-section-h2 [settings]="section.settings" />
+   </div>
+    <div class="mb-2"></div>
+    <div class="grid-4" *ngIf="items">
+      <div class="item" *ngFor="let item of items">
+        <app-card [cardData]="item" />
+      </div>
+    </div>
+    <div class="d-flex-center">
+      <app-button [settings]="section.settings" />
+    </div>
+  </div>
+</div>

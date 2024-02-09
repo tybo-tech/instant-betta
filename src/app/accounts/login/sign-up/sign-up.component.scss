@@ -1,0 +1,16 @@
+.form {
+  max-width: 400px;
+  margin: auto;
+  min-width: 350px;
+  padding: 0;
+  .p-1 {
+    padding: 2rem;
+  }
+}
+
+a {
+  color: var(--primary);
+}
+p {
+  text-align: center;
+}

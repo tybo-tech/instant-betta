@@ -1,0 +1,58 @@
+<!-- generic-list.component.html -->
+<div class="card slide-from-bottom">
+  <div class="header" *ngIf="isAdmin">
+    <div class="search-bar">
+      <input
+        type="search"
+        id="searchInput"
+        [(ngModel)]="searchTerm"
+        placeholder="Enter search term"
+        (input)="applySearch()"
+      />
+    </div>
+    <button style="width: fit-content;" class="create-button" (click)="onCreateClick()">Create</button>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th
+          *ngFor="let header of headers"
+          (click)="sortData(header.value)"
+          [ngClass]="{ sorted: sortColumn === header.value }"
+        >
+          <i
+            class="bi bi-arrow-down-up"
+            style="font-size: 8px; color: rgb(170, 2, 103)"
+          ></i>
+          <span class="capitalize">{{ header.label || header.value }}</span>
+        </th>
+        <td></td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of filteredData" (click)="open(item)">
+        <td *ngFor="let header of headers">
+          <ng-container [ngSwitch]="header.key">
+            <ng-container *ngSwitchCase="'image'">
+              <img
+                [src]="item[header.value]"
+                *ngIf="item[header.value]"
+                alt=""
+              />
+            </ng-container>
+            <ng-container *ngSwitchCase="'text'">{{
+              item[header.value]
+            }}</ng-container>
+          </ng-container>
+        </td>
+        <td (click)="delete(item, $event)" *ngIf="isAdmin">
+          <i
+            class="bi bi-trash"
+            style="font-size: 12px; color: rgb(255, 61, 61)"
+          ></i>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

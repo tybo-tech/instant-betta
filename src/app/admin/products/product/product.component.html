@@ -1,0 +1,11 @@
+<app-back-heading *ngIf="data" [url]="backUrl" heading="Product Details"/>
+<br>
+
+<app-product-details role="admin"   *ngIf="data" [product]="data"/>
+<!-- <div class="grid-2" *ngIf="!isAdd && data">
+    <div>
+      <app-wide-card [model]="model" [data]="data" />
+    </div>
+  </div> -->
+
+<div class="mb-2"></div>

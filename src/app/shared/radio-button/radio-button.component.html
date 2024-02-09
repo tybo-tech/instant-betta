@@ -1,0 +1,13 @@
+<!-- radio-button.component.html -->
+<div class="radio-group grid-2">
+  <ng-container *ngFor="let option of options">
+    <input
+      type="radio"
+      [value]="option.value"
+      [checked]="selectedValue === option.value"
+      id="{{ 'radio-' + option.value }}"
+      class="input radio"
+      (change)="onRadioChange(option.value)" />
+    <label for="{{ 'radio-' + option.value }}" class="radio-label" [innerHTML]=" option.label"></label
+  ></ng-container>
+</div>

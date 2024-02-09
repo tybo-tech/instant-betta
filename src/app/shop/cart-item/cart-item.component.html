@@ -1,0 +1,18 @@
+<ng-container *ngIf="item && cartHelper">
+  <div class="cart-item d-flex">
+    <img [src]="item.productImage" alt="" />
+    <div class="details">
+      <h5>
+        {{ item.productName }}
+      </h5>
+      <h6>
+        {{ item.total | currency : "R" }}
+      </h6>
+      <!-- <p>Red/34</p> -->
+      <div class="d-flex gap-1" *ngIf="canEdit">
+        <app-cart-qty [qty]="item.quantity"  (qtyChange)="cartHelper.updateCartItem(item, $event)"/>
+        <i class="bi bi-trash" (click)="cartHelper.removeCartItem(item)"></i>
+      </div>
+    </div>
+  </div>
+</ng-container>

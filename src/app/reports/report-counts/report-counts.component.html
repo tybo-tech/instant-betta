@@ -1,0 +1,11 @@
+<div class="items">
+  <div class="item" *ngFor="let item of items" (click)="onCountEVent(item)">
+    <i [ngClass]="item.Icon"></i>
+    <p>
+      {{ item.Name }}
+    </p>
+    <h3>
+      {{ item.Value }}
+    </h3>
+  </div>
+</div>

@@ -1,0 +1,6 @@
+<div class="empty-state">
+    <i class="bi bi-info-circle"></i>
+    <p>{{text}}</p>
+    <a class="button" *ngIf="link && label" [routerLink]="link">{{label}}</a>
+    <button (click)="clicked.emit()" class="button" *ngIf="btnName">{{btnName}}</button>
+  </div>

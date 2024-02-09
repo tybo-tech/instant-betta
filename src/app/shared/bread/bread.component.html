@@ -1,0 +1,16 @@
+<div *ngIf="last && bread && bread.length" class="bread">
+  <div class="d-flex gap-1 pointer mb-1">
+    <i (click)="back()" class="bi bi-arrow-left"></i>
+    <h3 [innerHTML]="last.key"></h3>
+  </div>
+  <div class="items">
+    <a
+      *ngFor="let item of bread; let i = index"
+      [ngClass]="{ active: i === bread.length - 1 }"
+      [routerLink]="item.value"
+    >
+      {{ item.key }}
+      <i *ngIf="i < bread.length - 1" class="bi bi-chevron-double-right"></i>
+    </a>
+  </div>
+</div>

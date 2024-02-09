@@ -1,0 +1,18 @@
+a {
+  display: block;
+  background: var(--white);
+  margin: 6px auto;
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 11px;
+  color: var(--grey);
+  font-weight: 600;
+  .bi {
+    margin-right: 6px;
+    font-size: 13px;
+  }
+}
+a.active {
+  color: var(--primary);
+  background: var(--default-body-bg-color);
+}

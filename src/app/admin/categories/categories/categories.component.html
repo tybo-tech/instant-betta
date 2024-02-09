@@ -1,0 +1,9 @@
+<app-bread [bread]="bread" />
+<div class="mb-2"></div>
+
+<app-generic-list
+*ngIf="tableData"
+  [headers]="tableHeaders"
+  [data]="tableData"
+  (createClicked)="create()"
+></app-generic-list>

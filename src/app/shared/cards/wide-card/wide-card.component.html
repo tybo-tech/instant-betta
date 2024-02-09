@@ -1,0 +1,40 @@
+<ng-container *ngIf="model && data">
+  <div class="wide-card">
+    <ng-container class="" *ngFor="let item of model">
+      <ng-container *ngIf="item.show_on_details">
+        <ng-container [ngSwitch]="item.type">
+          <ng-container *ngSwitchCase="'image'">
+            <img
+              alt="Card Image"
+              class="card-image"
+              [src]="getFormattedValue(item)"
+              *ngIf="getFormattedValue(item)"
+            />
+          </ng-container>
+          <div class="card-content">
+            <ng-container *ngSwitchCase="'text'">
+              <b>{{ item.label }}</b> : {{ getFormattedValue(item) }}
+            </ng-container>
+            <ng-container *ngSwitchCase="'money'">
+              <b>{{ item.label }}</b> : {{ getFormattedValue(item) | currency:'R' }}
+            </ng-container>
+            <ng-container *ngSwitchCase="'address'">
+              <b>{{ item.label }}</b> : {{ getFormattedValue(item) }}
+            </ng-container>
+            <ng-container *ngSwitchCase="'latitude'">
+              <b>{{ item.label }}</b> : {{ getFormattedValue(item) }}
+            </ng-container>
+            <ng-container *ngSwitchCase="'longitude'">
+              <b>{{ item.label }}</b> : {{ getFormattedValue(item) }}
+            </ng-container>
+            <ng-container *ngSwitchCase="'address_url'">
+              <a [href]="getFormattedValue(item)" target="_blank"
+                ><i class="bi bi-geo-alt"></i> View on maps</a
+              >
+            </ng-container>
+          </div>
+        </ng-container>
+      </ng-container>
+    </ng-container>
+  </div>
+</ng-container>

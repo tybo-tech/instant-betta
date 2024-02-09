@@ -1,0 +1,28 @@
+<div class="cart-modal fade-in" id="cart-modal" (click)="closeWithOverlay($event)">
+  <div class="modal slide-from-right">
+    <h3 class="heading space-between d-flex">
+      Cart
+      <i class="bi bi-x-lg pointer" (click)="closeCart.emit()"></i>
+    </h3>
+    <ng-container *ngIf="order && order.items">
+      <div class="items">
+        <div class="" *ngFor="let item of order.items">
+          <app-cart-item [item]="item" [cartHelper]="cartHelper" />
+        </div>
+        <div class="actions">
+          <h4 class="space-between d-flex">
+            Total
+            <span>
+              {{ order.total_price | currency : "R" }}
+            </span>
+          </h4>
+          <p class="mb-1">delivery will be calulated on checkout.</p>
+
+          <a class="button" *ngIf="user && user.role" (click)="closeCart.emit()" routerLink="/checkout">Checkout</a>
+          <a class="button mb-1" *ngIf="!user || !user.role" (click)="closeCart.emit()" routerLink="/login">Login</a>
+          <a class="button dark" *ngIf="!user || !user.role" (click)="closeCart.emit()" routerLink="/sign-up">Sign up</a>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</div>

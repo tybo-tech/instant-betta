@@ -1,0 +1,9 @@
+
+
+<div class="container">
+
+    <app-back-heading *ngIf="data" [url]="backUrl" heading="Product Details"/>
+    <br>
+    
+    <app-product-details role="customer"  [longitude]="longitude" [latitude]="latitude"  *ngIf="data" [product]="data"/>
+</div>

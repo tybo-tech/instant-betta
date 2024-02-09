@@ -1,1 +1,24 @@
-/* You can add global styles to this file, and also import other style files */
+@import "https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap";
+@import "./assets/styles/base";
+@import "./assets/styles/layout";
+@import "./assets/styles/forms";
+@import "./assets/styles/table";
+@import "./assets/styles/keyframes";
+@import "./assets/styles/scrollers";
+@import "~quill/dist/quill.snow.css";
+
+h1 {
+  @media only screen and (max-width: 600px) {
+    font-size: 18px;
+    padding: 1rem 0;
+  }
+}
+h2 {
+  @media only screen and (max-width: 600px) {
+    font-size: 18px;
+  }
+}
+
+a {
+  color: rgb(223, 223, 223);
+}

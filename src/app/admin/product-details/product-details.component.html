@@ -1,0 +1,37 @@
+<app-cart-modal (closeCart)="showCart = false" *ngIf="showCart"/>
+
+<div class="product-details-container" *ngIf="product">
+  <div class="product-image">
+    <img [src]="product.image_url" alt="{{ product.name }}" />
+  </div>
+  <div class="product-info">
+    <h2>{{ product.name }}</h2>
+    <p style="font-size: 2rem;" class="price">{{ product.price | currency : "USD" }}</p>
+
+    <!-- Variations Section -->
+    <div class="variations" *ngFor="let variation of product.metadata.variations">
+      <h4>{{ variation.name }}</h4>
+      <div class="option" *ngFor="let option of variation.options">
+        <label [for]="option.value">{{ option.value }}</label>
+        <input
+          type="radio"
+          [name]="variation.name"
+          [value]="option.value"
+          [id]="option.value"
+        />
+      </div>
+    </div>
+
+    <p class="description">{{ product.description }}</p>
+
+    <!-- Add to Cart and Add to Wishlist buttons -->
+    <div class="action-buttons" *ngIf="role === 'customer'">
+      <a class="button add-to-cart-button" (click)="addToCart()">Add to Cart</a>
+      <!-- <a class="button add-to-wishlist-button">Add to Wishlist</a> -->
+    </div>
+    <div class="action-buttons" *ngIf="role === 'admin'">
+      <a [routerLink]="'/admin/products-options/' + product.id" class="button">Variations</a>
+      <a [routerLink]="'/admin/edit-product/' + product.campany_id + '/'+ product.id" class="button dark ">Edit details</a>
+    </div>
+  </div>
+</div>

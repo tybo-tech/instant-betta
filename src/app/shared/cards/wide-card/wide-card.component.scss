@@ -1,0 +1,22 @@
+.wide-card {
+  border: var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 30rem;
+  padding: 1rem;
+}
+
+.card-image {
+  width: 100%;
+  height: auto;
+  max-height: 200px; /* Set a maximum height for the image */
+  object-fit: cover;
+  object-position: center;
+  border-radius: 8px;
+  background: var(--cloud);
+}
+
+.card-content {
+  padding: 2px 16px;
+}

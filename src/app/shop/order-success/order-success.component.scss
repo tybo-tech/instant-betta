@@ -1,0 +1,29 @@
+/* order-success.component.css */
+.order-success-container {
+    position: fixed;
+    left:0;
+    top: 0;
+    background-color: var(--white);
+    width: 100%;
+    text-align: center;
+    .modal{
+        max-width: 400px;
+        // border: var(--border);
+        // box-shadow: var(--box-shadow);
+        margin: 0 auto;
+        padding: 20px;
+       height: 100vh;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+  }
+
+  
+  .order-details {
+    margin-top: 20px;
+    color: var(--grey);
+  }
+  
+  .additional-actions {
+    margin-top: 20px;
+  }

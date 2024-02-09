@@ -1,0 +1,21 @@
+<app-bread [bread]="bread" />
+<div class="mb-2"></div>
+
+<app-dynamic-form
+  *ngIf="isAdd"
+  [formData]="formConfig"
+  (onSubmited)="onSubmit($event)"
+/>
+<div class="grid-2" *ngIf="!isAdd && data">
+  <div>
+    <app-wide-card [model]="model" [data]="data" />
+  </div>
+  <div class="counts">
+    <app-report-counts (countEVent)="onCountEVent($event)" [items]="counts" />
+  </div>
+  <div class="counts">
+    <app-report-counts (countEVent)="onCountEVent($event)"  [items]="counts2" />
+  </div>
+</div>
+
+<div class="mb-2"></div>

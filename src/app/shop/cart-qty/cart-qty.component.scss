@@ -1,0 +1,21 @@
+.cart-container {
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--grey);
+  gap: .1rem;
+  padding: 0.2rem 1.2rem;
+  border-radius: .2rem;
+  width: fit-content;
+
+  .bi {
+    font-size: 1.2rem;
+    cursor: pointer;
+  }
+
+  .qty {
+    font-size: .8rem;
+    font-weight: 600;
+    min-width: 2rem;
+    text-align: center;
+  }
+}

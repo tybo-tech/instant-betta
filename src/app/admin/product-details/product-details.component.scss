@@ -1,0 +1,66 @@
+/* product-details.component.css */
+.product-details-container {
+    display: grid;
+    grid-template-columns: 40% auto;
+    grid-gap: 20px;
+    align-items: center;
+    @media only screen and (max-width: 600px) {
+      grid-template-columns: 100%;
+      padding: 1rem;
+    }
+  }
+  
+  .product-image {
+    max-width: 100%;
+   img{
+    border-radius: 5px;
+   }
+  }
+  
+  .product-info {
+    text-align: left;
+  }
+  
+  .price {
+    font-weight: bold;
+    color: #dce43c; /* Green color for the price */
+  }
+  
+  .variations,
+  .description {
+    margin-bottom: 10px;
+  }
+  
+  .action-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: fit-content;
+    button{
+        padding-inline: 2rem;
+    }
+    @media only screen and (max-width: 600px) {
+      width: 100%;
+    }
+  }
+
+  .variations{
+    margin: 2rem 0;
+    .option{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin: 5px;
+      max-width: 500px;
+      background: rgb(42, 42, 42);
+      padding: 6px 12px;
+      border-radius: 4px;
+      input, label{
+        width: fit-content;
+        padding: 0;
+        margin: 0;
+        cursor: pointer;
+      }
+      
+    }
+  }

@@ -1,0 +1,93 @@
+<div class="grid-2">
+
+  <app-app-schema-list [tables]="list"/>
+<div class="card slide-from-bottom">
+    <h3>Add table</h3>
+  <div class="header">
+    <div class="search-bar">
+      <input
+        type="search"
+        id="searchInput"
+        [(ngModel)]="tableName"
+        placeholder="Entertable name..."
+      />
+    </div>
+    <button class="create-button" [disabled]="!tableName" (click)="onSubmit()">
+      Save
+    </button>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th *ngFor="let header of headers">
+          {{ header }}
+        </th>
+        <td></td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let column of columns; let i = index">
+        <td>
+          <input
+            [disabled]="!column.canDelete"
+            type="text"
+            id="columnName"
+            [(ngModel)]="column.columnName"
+            required
+          />
+        </td>
+        <td>
+          <select
+            id="columnType"
+            [(ngModel)]="column.columnType"
+            [disabled]="!column.canDelete"
+            required
+          >
+            <option value="INT AUTO_INCREMENT PRIMARY KEY">ID</option>
+            <option value="TIMESTAMP DEFAULT CURRENT_TIMESTAMP">
+              CURRENT DATE
+            </option>
+            <option
+              value="TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"
+            >
+              CURRENT DATE TRACK UPDATE
+            </option>
+            <option value="DATETIME">DATETIME</option>
+            <option value="TIMESTAMP">TIMESTAMP</option>
+            <option value="INT">INT</option>
+            <option value="VARCHAR(255)">VARCHAR(255)</option>
+            <option value="VARCHAR(50)">VARCHAR(50)</option>
+            <option value="VARCHAR(100)">VARCHAR(100)</option>
+            <option value="VARCHAR(10)">VARCHAR(10)</option>
+            <option value="TEXT">TEXT</option>
+            <option value="FLOAT">FLOAT</option>
+            <option value="BOOLEAN">BOOLEAN</option>
+          </select>
+        </td>
+        <td>
+          <i
+            (click)="removeColumn(i)"
+            style="color: red"
+            *ngIf="column.canDelete"
+            class="bi bi-trash"
+          ></i>
+          <i
+            style="color: rgb(147, 147, 147)"
+            *ngIf="!column.canDelete"
+            class="bi bi-asterisk"
+            title="This field is required for all tables."
+          ></i>
+        </td>
+      </tr>
+      <tr>
+        <td></td>
+        <td colspan="2">
+          <a (click)="addColumn()" class="link-info">Add Column</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+</div>

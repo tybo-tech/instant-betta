@@ -1,0 +1,16 @@
+<!-- order-success.component.html -->
+<div class="order-success-container">
+    <div class="modal">
+        <h2>Order Placed Successfully!</h2>
+        <div class="order-details" >
+         
+          <app-order-summary [cartHelper]="cartHelper" />
+    
+        </div>
+        <div class="additional-actions">
+          <button routerLink="/shop">Continue Shopping</button>
+        </div>
+    </div>
+
+  </div>
+  

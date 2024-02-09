@@ -1,0 +1,66 @@
+<div class="checkout-modal dark-scrollbar">
+  <div class="top-bar">
+    <div class="container">
+      <header class="d-flex space-between">
+        <app-logo />
+
+        <section class="d-flex gap-1">
+          <a href="">Help</a>
+          <a href="">Cart</a>
+        </section>
+      </header>
+    </div>
+  </div>
+  <div class="container mt-2">
+    <div class="grid-2 gap-5">
+      <section id="section-1">
+        <h1>Check out</h1>
+
+        <p class="mt-2">How would you like to get your order?</p>
+        <div class="delivery">
+          <app-radio-button
+            [options]="deliveryOptions"
+            [selectedValue]="cartHelper.order?.metadata?.deliveryMethod || ''"
+            (valueChange)="cartHelper.updateDelivery($event)"
+          />
+        </div>
+<!-- 
+        <div class="grid-2">
+          <a routerLink="/login" class="button dark">Login</a>
+          <a routerLink="/sign-up" class="button dark">Sign up</a>
+        </div> -->
+
+        <h5 class="mt-2">Confirm your name and address:</h5>
+        <div class="group">
+          <div class="mt-1"></div>
+          <app-checkout-form
+            [formData]="
+              cartHelper.order?.metadata?.customer || initUsers
+            "
+            (valueChange)="cartHelper.onCustomerChange($event);"
+          />
+        </div>
+
+        <p class="mt-2">Choose Payment method</p>
+        <div class="delivery">
+          <app-radio-button
+            [selectedValue]="cartHelper.order?.payment_method || ''"
+            [options]="paymentOptions"
+            (valueChange)="cartHelper.updatePayment($event)"
+          />
+        </div>
+        <div class="actions">
+          <button class="btn" (click)="placeOrder()">Place order</button>
+        </div>
+      </section>
+      <section id="section-1">
+        <app-order-summary [cartHelper]="cartHelper" />
+        <app-payment-forms
+          [cartHelper]="cartHelper"
+          [payfast]="payfast"
+          *ngIf="payfast.shopingSuccesfulUrl"
+        />
+      </section>
+    </div>
+  </div>
+</div>

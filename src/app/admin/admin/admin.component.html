@@ -1,0 +1,18 @@
+<div class="layout admin" *ngIf="user && user.role === 'admin'">
+    <nav>
+      <app-side-nav />
+    </nav>
+    <main>
+      <header class="d-flex gap-1">
+        <i (click)="toggle()" class="bi bi-list-nested menu-button"></i>
+        <div class="d-block">
+          <app-top-bar />
+        </div>
+      </header>
+      <div class="main dark-scrollbar">
+        <router-outlet></router-outlet>
+      </div>
+    </main>
+  </div>
+  
+  

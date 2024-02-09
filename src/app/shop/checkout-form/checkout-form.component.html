@@ -1,0 +1,86 @@
+<!-- checkout-form.component.html -->
+<div>
+  <div>
+    <label for="firstName">First Name:</label>
+    <input
+      type="text"
+      id="firstName"
+      name="firstName"
+      [(ngModel)]="formData.username"
+      required
+      (change)="valueChange.emit(formData)"
+    />
+  </div>
+<!-- 
+  <div>
+    <label for="lastName">Last Name:</label>
+    <input
+      type="text"
+      id="lastName"
+      name="lastName"
+      [(ngModel)]="formData.lastName"
+      required
+      (change)="valueChange.emit(formData)"
+    />
+  </div> -->
+
+  <div>
+    <label for="streetAddress">Street Address:</label>
+    <input
+      type="text"
+      id="streetAddress"
+      name="streetAddress"
+      [(ngModel)]="formData.address"
+      required
+      (change)="valueChange.emit(formData)"
+    />
+  </div>
+
+  <div>
+    <label for="city">City:</label>
+    <input
+      type="text"
+      id="city"
+      name="city"
+      [(ngModel)]="formData.city"
+      required
+      (change)="valueChange.emit(formData)"
+    />
+  </div>
+
+  <!-- <div>
+    <label for="postalCode">Postal Code:</label>
+    <input
+      type="text"
+      id="postalCode"
+      name="postalCode"
+      [(ngModel)]="formData.add"
+      required
+      (change)="valueChange.emit(formData)"
+    />
+  </div> -->
+
+  <h5 class="mt-2">Confirm your contact information?</h5>
+  <div>
+    <label for="lastName">Email:</label>
+    <input
+      type="text"
+      id="lastName"
+      name="lastName"
+      [(ngModel)]="formData.email"
+      required
+      (change)="valueChange.emit(formData)"
+    />
+  </div>
+  <div>
+    <label for="lastName">Phone number:</label>
+    <input
+      type="text"
+      id="lastName"
+      name="lastName"
+      [(ngModel)]="formData.phone_number"
+      required
+      (change)="valueChange.emit(formData)"
+    />
+  </div>
+</div>

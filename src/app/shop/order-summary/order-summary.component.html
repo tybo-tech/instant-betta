@@ -1,0 +1,32 @@
+<div class="order-summary">
+  <h3 class="heading">Order Summary</h3>
+  <ng-container *ngIf="order && order.items">
+    <div class="actions">
+      <h4 class="space-between d-flex">
+        Delivery/Shipping
+
+        <span>
+          {{ "100" | currency : "R" }}
+        </span>
+      </h4>
+      <h4 class="space-between d-flex">
+        Total
+        <span>
+          {{ order.total_price | currency : "R" }}
+        </span>
+      </h4>
+    </div>
+    <div class="items">
+      <p class="mt-2">
+        <b>Estimated delivery date: 05 Feb 2024 </b>
+      </p>
+      <div class="" *ngFor="let item of order.items">
+        <app-cart-item
+          [item]="item"
+          [canEdit]="false"
+          [cartHelper]="cartHelper"
+        />
+      </div>
+    </div>
+  </ng-container>
+</div>

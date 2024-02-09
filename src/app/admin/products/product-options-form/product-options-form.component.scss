@@ -1,0 +1,30 @@
+/* product-options-form.component.css */
+.product-options-form {
+  margin-bottom: 20px;
+  padding: 30px;
+  max-width: 600px;
+  @media only screen and (max-width: 600px) {
+    padding: .5rem;
+  }
+
+  .card {
+    margin-bottom: 1rem;
+    padding: 1.5rem;
+    hr {
+      margin: 1rem auto;
+    }
+  }
+}
+
+.grid-3-sm {
+  display: grid;
+  grid-template-columns: 40% 40% auto;
+  grid-gap: 0.5rem;
+  background: #1b1a1a;
+  padding: 0.4rem;
+  align-items: center;
+}
+
+a {
+  cursor: pointer;
+}
